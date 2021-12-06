@@ -92,9 +92,14 @@ func main()  {
 	csrfSignKey := []byte(csrfToken.GenerateRandomID(32))
 	//tmp1 := template.Must(template.ParseGlob("../../frontend/ui/templates/*"))
 	tmp1 := template.Must(template.ParseGlob("../../frontend/ui/templates/*"))
-	dbconn, err := gorm.Open("postgres", "postgres://postgres:ermi12345@localhost/itsec?sslmode=disable")
-
-	//createTabels(dbconn)
+	
+	//dbconn, err := gorm.Open("postgres", "postgres://postgres:ermi12345@localhost/itsec?sslmode=disable")
+	
+	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", os.Getenv("DBUSER"),
+		os.Getenv("DBPASS"), os.Getenv("DBHOST"), os.Getenv("DBNAME"))
+	dbconn, err := gorm.Open("postgres", connStr)
+	
+	createTabels(dbconn)
 
 	if err != nil {
 		panic(err)
@@ -217,7 +222,10 @@ func main()  {
 	http.Handle("/user/orders/delete", uh.Authenticated(uh.AuthorizedUser(http.HandlerFunc(oh.OrdersDelete))))
 	http.Handle("/logout", uh.Authenticated(http.HandlerFunc(uh.Logout)))
 
-	http.ListenAndServe(":8181", nil)
+	//http.ListenAndServe(":8181", nil)
+	port := fmt.Sprintf(":%s", os.Getenv("HPORT"))
+
+	http.ListenAndServe(port, nil)
 
 }
 
