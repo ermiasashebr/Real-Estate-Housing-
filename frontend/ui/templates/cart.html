@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-2">
+        <div style="text-align: center">Name</div>
+    </div>
+    <div class="col-lg-1">
+        <div style="text-align: center">Price</div>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+<hr>
+{{range .Products}}
+<div class="items row">
+    <h4 class="id" hidden>{{.ID}}</h4>
+    <div class="col-lg-2" style="text-align: center">
+        <img src="/assets/img/{{ .Image }}" width=200px height="200px" />
+    </div>
+    <div class="col-lg-2" style="font-weight: bold; text-align: center">
+        <a href="/detail?id={{ .ID }}">{{ .Name }}</a>
+    </div>
+    <div class="col-lg-1" style="text-align: center">
+        ETB <span class="price">{{ .Price }}</span>
+    </div>
+    <div class="col-lg-1" style="text-align: center">
+        <a href="/deleteitemcart?id={{ .ID }}">Remove</a>
+    </div>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <button><a href="/">Continue Shopping</a></button>
+            <a href="/userRequest?id={{ .ID}}"><button style="padding: 10px; background-color: teal; color: white">Procceed for request</button></a>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+<hr>
+{{else}}
+<h2>No Items in Cart yet</h2>
+{{end}}
+Total: ETB <h5 id="total"></h5>
+<br>
+
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/findtotal.js"></script>
+<script src="../assets/js/placeorder.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{{ define "seller.propertiesadmin.layout" }}
+{{ template "admin.navbar" . }}
+{{ template "seller.propertiesadmin.content" . }}
+{{ template "admin.footer" . }}
+{{ end }}
+
+{{ define "seller.propertiesadmin.content"}}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Properties List</h2>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+        {{/*            <th scope="col">Item Type</th>*/}}
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image
+            <th scope="col">Image2</th>
+            <th scope="col">Image3</th>
+            <th scope="col">Image4</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range .Properties }}
+        <tr>
+            <th scope="row"> {{ .ID }} </th>
+            <td> {{ .Name }} </td>
+            <td> {{ .Quantity }} </td>
+            <td> {{ .Price }} ETB </td>
+            <td> <img src="/assets/img/{{ .Image }}" width="70rem" height="70rem" /> </td>
+            <td> <img src="/assets/img/{{ .Image2 }}" width="70rem" height="70rem" /> </td>
+            <td> <img src="/assets/img/{{ .Image3 }}" width="70rem" height="70rem" /> </td>
+            <td> <img src="/assets/img/{{ .Image4 }}" width="70rem" height="70rem" /> </td>
+        </tr>
+        {{ end }}
+
+        </tbody>
+    </table>
+
+</main>
+{{ end }}

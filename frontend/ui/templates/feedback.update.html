@@ -1,0 +1,85 @@
+{{ define "feedback.update.layout" }}
+  {{ template "sellerr.navbar" . }}
+  {{ template "feedback.update.content" . }}
+  {{ template "sellerr.footer" . }}
+{{ end }}
+
+{{ define "feedback.update.content"}}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Update FeedBack</h2>
+    </div>
+    <div class="container">
+        <form method="POST" action="/user/feedbacks/update" enctype="multipart/form-data">
+            <input type="hidden" name='_csrf' value='{{ .CSRF }}' />
+            <input type="hidden" name='id' id='id' value='{{ .Feedback.ID }}' />
+            <input type="hidden" name='proid' value='{{ .Values.Get "proid" }}' />
+            <input type="hidden" name="userId" value="{{ .Values.Get "userId"}}">
+            <input type="hidden" name='catimg' value='{{ .Values.Get "catimg" }}' />
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Sender's Name</label>
+            {{with .VErrors.Get "name"}}
+                <label class="col-sm-2 col-form-label text-danger">{{.}}</label>
+            {{end}}
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name='name' id='name' placeholder="Feedback Name"
+                           value='{{ .Values.Get "name" }}'/>
+                </div>
+            </div>
+
+            <div class="col-auto">
+                <label for='email' class='col-form-label'>Email</label>
+            {{with .VErrors.Get "email"}}
+                <label class="text-danger">{{.}}</label>
+            {{end}}
+                <input type='email' class='form-control' name='email' id='email' value='{{ .Values.Get "email" }}'
+                       required placeholder='Email Address'>
+            </div>
+
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description</label>
+            {{with .VErrors.Get "description"}}
+                <label class="col-sm-2 col-form-label text-danger">{{.}}</label>
+            {{end}}
+                <div class="col-sm-10">
+                    <textarea class="form-control" name='description' id='description'>{{ .Values.Get "description" }}</textarea>
+                </div>
+            </div>
+            <div class="col-auto">
+                <label for='phone' class='col-form-label'>Phone</label>
+            {{with .VErrors.Get "phone"}}
+                <label class="text-danger">{{.}}</label>
+            {{end}}
+                <input type='text' class='form-control' name='phone' id='phone' value='{{ .Values.Get "phone" }}'
+                       required  placeholder='Phone Number'>
+            </div>
+
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description</label>
+            {{with .VErrors.Get "description"}}
+                <label class="col-sm-2 col-form-label text-danger">{{.}}</label>
+            {{end}}
+                <div class="col-sm-10">
+                    <textarea class="form-control" name='description' id='description'>{{ .Values.Get "description" }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="catimg" class="col-sm-2 col-form-label">Current File</label>
+                <input type="hidden" name='imgname' value='{{ .Values.Get "catimg" }}' />
+                <img src='/assets/img/{{ .Values.Get "catimg" }}' width="80px" height="80px" />
+                <label for='catimg' class="col-sm-2 col-form-label">Upload New File</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control-file" name='catimg' id='catimg'>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type='submit' class="btn btn-primary float-right" style="background-color: #a52502">Update Feedbacks</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+{{ end }}

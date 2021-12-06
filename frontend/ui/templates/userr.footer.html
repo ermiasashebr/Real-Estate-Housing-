@@ -1,0 +1,38 @@
+{{ define "userr.footer" }}
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright" style="align-items: center">&copy; 2019 E&E Real Estate Serviceeeeeee</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- js -->
+<script src="../../assets/js/jquery-3.4.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../../assets/js/select.js"></script>
+
+<script src="../../assets/js/ratingformat.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script>
+    console.log("test");
+    $(document).ready(function(){
+        let id = $('#userid').text();
+        if(id!=""){
+            localStorage.setItem('userid', id);
+            console.log(localStorage.getItem('userid'));
+            console.log("t",id);
+        }
+    });
+</script>
+<script src="../../assets/js/alljs.js"></script>
+<script src="../../assets/js/userprof.js"></script>
+<script src="../../assets/js/decodeJWT.js"></script>
+<script src="../../assets/js/addtocart.js"></script>
+</body>
+</html>
+{{ end }}
+
+

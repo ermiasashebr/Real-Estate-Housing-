@@ -1,0 +1,38 @@
+{{ define "admin.order.layout" }}
+    {{ template "user.navbar" . }}
+    {{ template "admin.order.content" . }}
+    {{ template "user.footer" . }}
+{{ end }}
+
+{{ define "admin.order.content"}}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Orders</h2>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">User Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Ordered At</th>
+            <th scope="col">Properties in Order</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range .Orders }}
+        <tr>
+            <th scope="row"> {{ .Name }} </th>
+            <td> {{ .Phone }} </td>
+            <td> {{ .Email }} </td>
+            <td> {{ .CreatedAt }} </td>
+            <td> {{ .ItemsID }} </td>
+            <td> <a href="/user/orders/delete?id={{ .ID }}">Delete</a> </td>
+        </tr>
+        {{ end }}
+        </tbody>
+    </table>
+</main>
+{{ end }}

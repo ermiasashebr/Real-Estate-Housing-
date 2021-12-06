@@ -1,0 +1,144 @@
+{{ define "demo.layout" }}
+
+{{ template "navbar" . }}
+{{ template "demo.content" . }}
+{{ template "footer" . }}
+
+{{ end }}
+
+{{ define "demo.content" }}
+<hr>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="" />
+    <meta name="description" content="">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/style2.css">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,400,600,700" rel="stylesheet">
+
+    <!-- Ionic Icons -->
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+
+    <title>Real Estate Template | Themes Bootstrap</title>
+</head>
+
+<section id="properties">
+    <div class="container">
+        <h2>The best marketplace to find homes for sale.</h2>
+        <div class="row topmargin-sm">
+            <div class="col-md-6">
+                <p>E&E Real Estate service provides the properties our in the market, reasonable price for customers along with
+                    many choices from different real estate companies available in Ethiopia</p>
+            </div>
+            <div class="col-md-6">
+                <p>Rating is available for our propertis that are customer based, one upto four Bedroom Houses are available for
+                    our customers to choose from, feel free and explore our site</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid topmargin-lg">
+        <div class="row">
+        {{ range .Properties }}
+            <div class="col-md-6" >
+
+                <div class="property-container" style=" box-shadow: -30px 30px 20px rgba(0,0,0,0.3); border-radius: 10px; border-bottom-right-radius: 10px; border-top-right-radius: 10px; margin-left: 25px">
+                    <div class="property-title">
+                        <span style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">Residential {{ .Name }}</span>
+                        <h3><a href="/detail?id={{ .ID }}" style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">Address: {{ .Address }}<br>
+                        </a></h3>
+                        <h3><a href="/detail?id={{ .ID }}" style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">{{ .Description }}<br>
+                            </a></h3>
+                    </div>
+                    <div class="property-button">
+                        <a href="/detail?id={{ .ID }}" class="card-link" style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 900">Click for Details</a>
+                    </div>
+                    <div class="property-icon">
+                        <a href="/detail?id={{ .ID }}"><i class="icon ion-md-arrow-dropright-circle"></i></a>
+                    </div>
+                    <img style="width: 730px; height: 400px" src="/assets/img/{{ .Image }}" class="img-fluid" alt="House image 2">
+                </div>
+            </div>{{else}}
+                    <h2>No Items Found</h2>
+
+                {{ end }}
+                <p style="display:none;" id="userid">{{ .UserID }}</p>
+        </div><!-- End row -->
+
+    </div><!-- End container fluid -->
+</section><!-- End properties -->
+
+<section id="blog">
+    <div class="container">
+        <h2>Best articles of our real estate blog</h2>
+        <div class="row topmargin-sm">
+            <div class="col-md-6">
+                <p>Some recent posts released by our Real Estate agent's that already rented out, can see the review on this
+                    properties from multiple clients.</p>
+            </div>
+            <div class="col-md-6">
+                <p>The major differences of these two types of apartments are listed below to help you make an informed d
+                    ecision when purchasing a home from us through our site </p>
+            </div>
+        </div>
+        <div class="row topmargin-sm">
+            <div class="col-md-4 topmargin-sm">
+                <div class="blog-img">
+                    <a href="#"><img src="../assets/img/20190307_133049.jpg" class="img-fluid" alt="House interior image 1" style="border-radius: 10px"></a>
+                </div>
+                <div class="blog-info">
+                    <a href="#">
+                        <h4>West View Real Estate</h4>
+                    </a>
+                    <a href="#">Posted in Interior design by <b>Nebyou AmeneShewa</b></a>
+                </div>
+            </div>
+            <div class="col-md-4 topmargin-sm">
+                <div class="blog-img">
+                    <a href="#"><img src="../assets/img/p2.jpg" class="img-fluid" alt="House interior image 2" style="border-radius: 10px"></a>
+                </div>
+                <div class="blog-info">
+                    <a href="#">
+                        <h4>CMC site projects</h4>
+                    </a>
+                    <a href="#">Posted in Interior design by <b>Tinsae Tesfae</b></a>
+                </div>
+            </div>
+            <div class="col-md-4 topmargin-sm">
+                <div class="blog-img">
+                    <a href="#"><img src="../assets/img/p7.jpg" class="img-fluid" alt="House interior image 3" style="border-radius: 10px"></a>
+                </div>
+                <div class="blog-info">
+                    <a href="#">
+                        <h4>Around Piassa, next to Arada Tower</h4>
+                    </a>
+                    <a href="#">Posted in Interior design by <b>Ermias Ashebr</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+{{ end }}
+

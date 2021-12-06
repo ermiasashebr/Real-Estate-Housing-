@@ -1,0 +1,61 @@
+{{ define "adminn.navbar" }}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+
+</head>
+
+<body>
+<nav class="navbar navbar-light fixed-top flex-md-nowrap p-0" style="background-color: #111111;">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/admin" style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">E&E Administrator Page</a>
+</nav>
+
+<div class="container-fluid" style="background-color: #111111">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky" style="background-color: #111111">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">
+                            <span data-feather="delete" ></span>
+                            <p style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">Home</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/categories">
+                            <span data-feather="delete" ></span>
+                            <p style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">Categories</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/properties">
+                            <span data-feather="delete" ></span>
+                            <p style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">Property</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/users">
+                            <span data-feather="delete" ></span>
+                            <p style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">Manager's list</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"href="/Registpage">
+                            <span data-feather="delete" ></span>
+                            <p style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600">Register New Managers</p>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+</div>
+{{ end }}

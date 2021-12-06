@@ -1,0 +1,54 @@
+{{ define "seller.properties.layout" }}
+{{ template "user.navbar" . }}
+{{ template "seller.properties.content" . }}
+{{ template "user.footer" . }}
+{{ end }}
+
+{{ define "seller.properties.content"}}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Properties List</h2>
+    </div>
+    <div class="pt-3 pb-2 mb-3">
+        <a class="btn btn-primary btn-lg" href="/user/propertiesNew" role="button" style="background-color: #a52502">New Properties</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+        {{/*            <th scope="col">Item Type</th>*/}}
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image
+            <th scope="col">Image2</th>
+            <th scope="col">Image3</th>
+            <th scope="col">Image4</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range .Properties }}
+        <tr>
+            <th scope="row"> {{ .ID }} </th>
+            <td> {{ .Name }} </td>
+            <td> {{ .Address }} </td>
+            <td> {{ .Quantity }} </td>
+            <td> {{ .Price }} ETB </td>
+            <td> <img src="/assets/img/{{ .Image }}" width="70rem" height="70rem" /> </td>
+            <td> <img src="/assets/img/{{ .Image2 }}" width="70rem" height="70rem" /> </td>
+            <td> <img src="/assets/img/{{ .Image3 }}" width="70rem" height="70rem" /> </td>
+            <td> <img src="/assets/img/{{ .Image4 }}" width="70rem" height="70rem" /> </td>
+            <td> <a href="/user/properties/update?id={{ .ID }}">Edit</a> </td>
+            <td> <a href="/user/properties/delete?id={{ .ID }}">Delete</a> </td>
+        </tr>
+        {{ end }}
+
+        </tbody>
+    </table>
+
+</main>
+{{ end }}

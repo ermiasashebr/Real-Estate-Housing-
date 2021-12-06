@@ -1,0 +1,59 @@
+{{ define "order.layout" }}
+{{ template "order.content" . }}
+{{ end }}
+
+{{ define "order.content"}}
+<style>
+    .form-signup {
+        width: 100%;
+        max-width: 500px;
+        padding: 15px;
+    }
+
+    .form-signup .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+    }
+</style>
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css" type=text/css media="all">
+    <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom m-5">
+        <h2>Request for Property</h2>
+    </div>
+    <form class="form-signup m-5" method="POST" action="/orderinfo">
+        <input type="hidden" name="_csrf" value="{{ .CSRF }}" />
+        <div class="form-group" class="col-auto">
+            <label for='name' class='col-form-label'>Full Name</label>
+        {{with .VErrors.Get "name"}}
+            <label class="text-danger">{{.}}</label>
+        {{end}}
+            <input type='text' class='form-control' name='name' id='name' value='{{ .Values.Get "name" }}'
+                   required autofocus placeholder='Full Name'>
+        </div>
+        <div class="col-auto form-group">
+            <label for='email' class='col-form-label'>Email</label>
+        {{with .VErrors.Get "email"}}
+            <label class="text-danger">{{.}}</label>
+        {{end}}
+            <input type='email' class='form-control' name='email' id='email' value='{{ .Values.Get "email" }}'
+                   required placeholder='Email Address'>
+        </div>
+        <div class="col-auto form-group">
+        </div>
+        <div class="col-auto">
+            <label for='phone' class='col-form-label'>Phone</label>
+        {{with .VErrors.Get "phone"}}
+            <label class="text-danger">{{.}}</label>
+        {{end}}
+            <input type='text' class='form-control' name='phone' id='phone' value='{{ .Values.Get "phone" }}'
+                   required  placeholder='Phone Number'>
+        </div>
+        <button type='submit' class='btn btn-primary float-right' style="background-color: #a52502">Send request</button>
+    </form>
+
+
+{{ end }}

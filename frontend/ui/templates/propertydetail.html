@@ -1,0 +1,83 @@
+{{ define "propertydetail.layout" }}
+
+{{ template "navbar" . }}
+{{ template "propertydetail.content" . }}
+{{ template "footer" . }}
+
+{{ end }}
+
+{{ define "propertydetail.content" }}
+<hr>
+
+<style>
+    .gallery {
+        background-color: #082c2c;
+        align-items: flex-start;
+        margin: 10px;
+        margin-bottom: 40px;
+    }
+
+    .gallery-item {
+        padding: 15px;
+    }
+
+    .gallery-item > img {
+        width: 100%;
+        height: 200px;
+        object-fit: fill;
+    }
+
+    .gallery-item img:hover {
+        transform: scale(1.1);
+    }
+
+    .pic1 {
+        height: 100% !important;
+    }
+
+</style>
+<!-- Main section of Gallery -->
+<main class="row">
+    <div class="col-12">
+        <h1 class="sub-head">Take A Look Around</h1>
+        <div class="gallery row justify-content-center">
+            <div>
+                <div class="gallery-item col-12 col-md-9 center">
+                    <img
+                            src="/assets/img{{ .Image }}"
+                            alt="picture1"
+                            class="pic1"
+                    />
+                </div>
+            </div>
+            <div class="gallery-item col-12 col-md-6 col-lg-3">
+                <img
+                        src="/assets/img/{{ .Image }}"
+                        alt="picture2"
+                />
+            </div>
+            <div class="gallery-item col-12 col-md-6 col-lg-3">
+                <img
+                        src="/assets/img/{{ .Image }}"
+                        alt="picture3"
+                />
+            </div>
+            <div class="gallery-item col-12 col-md-6 col-lg-3">
+                <img
+                        src="/assets/img/{{ .Image }}"
+                        alt="picture4"
+                />
+            </div>
+            <div class="gallery-item col-12 col-md-6 col-lg-3">
+                <img
+                        src="/assets/img/{{ .Image }}"
+                        alt="picture4"
+                />
+            </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<hr>
+{{ end }}

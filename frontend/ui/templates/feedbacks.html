@@ -1,0 +1,49 @@
+{{ define "feedbacks.layout" }}
+{{ template "user.navbar" . }}
+{{ template "feedbacks.content" . }}
+{{ template "user.footer" . }}
+{{ end }}
+
+{{ define "feedbacks.content"}}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>FeedBack Lists</h2>
+    </div>
+    <div class="pt-3 pb-2 mb-3">
+        <a class="btn btn-primary btn-lg" href="/user/feedbacksNew" role="button" style="background-color: #a52502">New Feedbacks</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+        {{/*            <th scope="col">Item Type</th>*/}}
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range .Feedbacks }}
+        <tr>
+            <th scope="row"> {{ .ID }} </th>
+            <td> {{ .Name }} </td>
+            <td> {{ .Email }} </td>
+            <td> {{ .Phone }} </td>
+            <td> {{ .Description }} </td>
+            <td> {{ .Image }} </td>
+            <td> <a href="/user/feedbacks/update?id={{ .ID }}">Edit</a> </td>
+            <td> <a href="/user/feedbacks/delete?id={{ .ID }}">Delete</a> </td>
+        </tr>
+
+        {{ end }}
+
+        </tbody>
+    </table>
+
+</main>
+{{ end }}

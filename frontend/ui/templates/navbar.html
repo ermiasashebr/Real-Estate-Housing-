@@ -1,0 +1,129 @@
+{{ define "navbar" }}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+{{/*    <meta http-equiv="x-ua-compatible" content="ie=edge">*/}}
+    <title>E&E</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico"> -->
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" type=text/css media="all">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="../assets/css/icon-font.min.css" type="text/css" media="all">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="../assets/css/plugins.css" type="text/css" media="all">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css" media="all">
+
+    <link rel="stylesheet" href="../assets/css/rateformat.css" type="text/css" media="all">
+
+    <link rel="stylesheet" href="../assets/fontawesome-free-5.15.4-web/css/all.min.css" type="text/css" media="all">
+
+{{/*    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*/}}
+    <!-- Modernizer JS -->
+    <!-- <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script> -->
+</head>
+
+<body>
+<!-- Header Section Start -->
+<div class="header-section" style="background-color: #111111">
+    <!-- Header Top Start -->
+    <div class="header-top header-top-one header-top-border pt-10 pb-10">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col order-12 order-xs-12 order-lg-2 mt-10 mb-10">
+
+                    <!-- Logo Start -->
+                    <div class="header-logo">
+                        <a href="/">
+                            <img src="assets/images/logo-light.png" alt="E&E - Real Estate Bootstrap4 HTML Template">
+                        </a>
+                    </div><!-- Logo End -->
+
+                </div>
+
+                <div class="col order-2 order-xs-2 order-lg-12 mt-10 mb-10">
+
+                    <div class="navbar-acc-content">
+
+                        <div class="header-advance-search">
+
+                            <form action="/searchProperties" method="GET">
+                                <div class="input"><input type="text" name="search" placeholder="Search your properties" style="font-family: 'Poppins',sans-serif; color: #111111; font-weight: 600"></div>
+                                <div class="select">
+                                    <select class="nice-select" style="font-family: 'Poppins',sans-serif; color: #f6f6f6; font-weight: 600" name="select" id="select" onchange="location = this.value;">
+                                        <option value="/">All</option>
+                                        <option value="/category?id=1" style="font-family: 'Poppins',sans-serif; color: #111111; font-weight: 600">One Bedroom</option>
+                                        <option value="/category?id=2" style="font-family: 'Poppins',sans-serif; color: #111111; font-weight: 600">Two Bedroom</option>
+                                        <option value="/category?id=3" style="font-family: 'Poppins',sans-serif; color: #111111; font-weight: 600">Three Bedroom</option>
+                                        <option value="/category?id=4" style="font-family: 'Poppins',sans-serif; color: #111111; font-weight: 600">Four Bedroom</option>
+                                    </select>
+                                </div>
+                                <div class="submit"><button style="background-color: #eb2f06"><i class="fas fa-search"></i></button></div>
+                            </form>
+
+                        </div><!-- Header Advance Search End -->
+
+                        <!-- Header Account Links Start -->
+                        <div class="header-account-links">
+                            <a href="/login" style="font-family: 'Poppins',sans-serif; color: #FFFFFF; font-weight: 600"><i class="fas fa-user-circle"></i> <span>my account</span></a>
+                        </div><!-- Header Account Links End -->
+                    {{/*                        <form method="POST" action="/logout" class="form-inline mt-2 mt-md-0">*/}}
+                    {{/*                            <input type="hidden" name="_csrf" value="{{ .CSRF }}" />*/}}
+                    {{/*                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>*/}}
+                    {{/*                        </form>*/}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+<!--{{/*<!DOCTYPE html>*/}}-->
+<!--{{/*<html>*/}}-->
+
+<!--{{/*<head>*/}}-->
+<!--{{/*    <title>Restaurant</title>*/}}-->
+<!--{{/*    <meta charset="UTF-8">*/}}-->
+<!--{{/*    <meta name="viewport" content="width=device-width, initial-scale=1">*/}}-->
+<!--{{/*    &lt;!&ndash; css &ndash;&gt;*/}}-->
+<!--{{/*    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">*/}}-->
+<!--{{/*    <link rel="stylesheet" href="../assets/fontawesome-free-5.11.2-web/css/all.min.css">*/}}-->
+<!--{{/*</head>*/}}-->
+<!--{{/*<body>*/}}-->
+<!--{{/*    <nav class="navbar navbar-expand-lg navbar-light bg-light">*/}}-->
+<!--{{/*        <a class="navbar-brand" href="/">3Y Restaurant</a>*/}}-->
+<!--{{/*        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"*/}}-->
+<!--{{/*            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">*/}}-->
+<!--{{/*            <span class="navbar-toggler-icon"></span>*/}}-->
+<!--{{/*        </button>*/}}-->
+<!--{{/*        <div class="collapse navbar-collapse" id="navbarSupportedContent">*/}}-->
+<!--{{/*            <ul class="navbar-nav mr-auto">*/}}-->
+<!--{{/*                <li class="nav-item active">*/}}-->
+<!--{{/*                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>*/}}-->
+<!--{{/*                </li>*/}}-->
+<!--{{/*                <li class="nav-item">*/}}-->
+<!--{{/*                    <a class="nav-link" href="menu">Menu</a>*/}}-->
+<!--{{/*                </li>*/}}-->
+<!--{{/*                <li class="nav-item">*/}}-->
+<!--{{/*                    <a class="nav-link" href="about">About</a>*/}}-->
+<!--{{/*                </li>*/}}-->
+<!--{{/*                <li class="nav-item">*/}}-->
+<!--{{/*                    <a class="nav-link" href="contact">Contact</a>*/}}-->
+<!--{{/*                </li>*/}}-->
+<!--{{/*            </ul>*/}}-->
+<!--{{/*        </div>*/}}-->
+<!--{{/*    </nav>*/}}-->
